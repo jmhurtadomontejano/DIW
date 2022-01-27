@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+
+<head>
+    <title>EJERCICIO JUEGO DE CARTAS</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/ico" href="imagenes_pokemon/favicon.ico" />
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+
+        .title {
+            border: 1px solid black;
+            display: flex;
+            background-color: black;
+            color: blanchedalmond;
+        }
+
+        .title img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .title link {
+            width: 100px;
+            height: 100px;
+        }
+
+        .title h1 {
+            text-align: center;
+            margin: auto;
+        }
+
+        .options {
+            border: 1px solid black;
+            padding: 2% 2% 2% 2%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .nickPoints {
+            display: flex;
+            justify-content: space-around;
+            border: 1px solid black;
+        }
+
+        .nickPoints div {
+            border: 1px solid black;
+        }
+
+        #nick {
+            padding: 0.3em;
+            align-self: center;
+            width: auto;
+        }
+
+        .score {
+            display: inline-grid;
+            width: auto;
+        }
+
+        .score h3 {
+            padding: 0.2em;
+        }
+
+        .topPlayer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            text-align: center;
+        }
+
+        .topPlayer div {
+            border: 1px solid black;
+            font-size: 1.3em;
+        }
+
+
+
+        .lenguaje {
+            display: flex;
+            text-align: center;
+            display: block;
+            flex-wrap: wrap;
+            width: 25%;
+
+            font-size: 2em;
+        }
+
+        .lenguaje div {
+            flex-wrap: wrap;
+            border: 1px solid black;
+        }
+
+        .lenguaje button {
+            padding: 2%;
+            font-size: 0.7em;
+        }
+
+        .information {
+            display: flex;
+            justify-content: space-around;
+            border: 2px solid black;
+        }
+
+        .game {
+            display: flex;
+            justify-content: space-between;
+            background-color: #2196F3;
+        }
+
+        .gameInformation {
+            overflow: scroll;
+            background-color: white;
+        }
+
+
+        .grid-container {
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-container img {
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid black;
+            text-align: center;
+            font-size: 30px;
+            height: 5em;
+            width: 5em;
+        }
+
+        .block{
+
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="title">
+        <img src="imagenes_pokemon/favicon.ico">
+        <link rel="shortcut icon" type="image/ico" href="imagenes_pokemon/favicon.ico" />
+        <h1 id="titulo">Ejercicio Juego de Cartas2</h1>
+    </div>
+    <div class="options">
+        <div class="nickPoints">
+            <h3 id="nick">Nick Usuario</h3>
+            <div class="score">
+                <div>
+                    <h3>SCORE</h3>
+                </div>
+                <div>
+                    <h3 id="tituloPuntos"> <i class="fas fa-check-circle"></i></h3>
+                </div>
+            </div>
+            <div class="score">
+                <div>
+                    <h3>ERRORS</h3>
+                </div>
+                <div>
+                    <h3 id="tituloContadorErrores"> <i class="far fa-times-circle"></i></h3>
+                </div>
+            </div>
+        </div>
+        <div class="topPlayer">
+            <div>Top Player</div>
+            <div>Points</div>
+            <div>Nombre ganador</div>
+            <div>Puntos</div>
+        </div>
+        <div class="lenguaje">
+            <div>
+                <p>lenguaje</p>
+            </div>
+            <div>
+                <button id="ES" onclick="ponerIdiomaSpanish()">Spanish</button>
+                <button id="EN" onclick="ponerIdiomaIngles()">English</button>
+            </div>
+        </div>
+    </div>
+    <div class="information">
+        <h2 id="information">Information</h2>
+
+    </div>
+
+
+
+
+    <div class="game">
+        <div class="grid-container">
+            <div id="carta1" class="carta"><img id="1" src="./imagenes_pokemon/Pikachu.png"></div>
+            <div id="carta2" class="carta"><img id="2" src="./imagenes_pokemon/mewtwo.png"></div>
+            <div id="carta3" class="carta"><img id="3" src="./imagenes_pokemon/Charizard.png"></div>
+            <div id="carta4" class="carta"><img id="4" src="./imagenes_pokemon/mewtwo.png"></div>
+            <div id="carta5" class="carta"><img id="5" src="./imagenes_pokemon/eevee.png"></div>
+            <div id="carta6" class="carta"><img id="6" src="./imagenes_pokemon/Charizard.png"></div>
+            <div id="carta7" class="carta"><img id="7" src="./imagenes_pokemon/groudon.png"></div>
+            <div id="carta8" class="carta"><img id="8" src="./imagenes_pokemon/digglet.png"></div>
+            <div id="carta9" class="carta"><img id="9" src="./imagenes_pokemon/eevee.png"></div>
+            <div id="carta10" class="carta"><img id="10" src="./imagenes_pokemon/groudon.png"></div>
+            <div id="carta11" class="carta"><img id="11" src="./imagenes_pokemon/digglet.png"></div>
+            <div id="carta12" class="carta"><img id="12" src="./imagenes_pokemon/Pikachu.png"></div>
+        </div>
+        <div class="gameInformation">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint odit explicabo in reprehenderit, incidunt,
+                maiores omnis quasi rem nesciunt sunt, et harum voluptate autem. Sed architecto hic saepe tempore
+                placeat!</h2>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>Footer</h2>
+        <button type="button" id="incrementar">Incrementar</button>
+        <button type="button" id="decrementar">Decrementar</button>
+        <button type="button" id="logout">Log out</button>
+        <p id="saludo"></p>
+        <p id="contador"></p>
+    </div>
+    <script type="text/javascript">
+        
+ //Comprobación de que el navegador soporta Web Storage
+ if (typeof(Storage) !== "undefined") {
+        alert("El navegador soporta WebStorage");
+        if (localStorage.usuario!=null){
+            document.getElementById("saludo").innerHTML="¡Bienvenido/a de nuevo, "+localStorage.usuario+"!";
+        }else{
+            localStorage.setItem("puntos", contadorPuntos);
+            document.getElementById("saludo").innerHTML="¡Tu primera visita, "+  localStorage.usuario+"!";
+        }
+
+        if(!sessionStorage.getItem("contador"))
+            sessionStorage.setItem("contador","0");
+
+        document.getElementById("contador").innerHTML="Contador: "+sessionStorage.getItem("contador");
+        document.getElementById("incrementar").addEventListener("click",incrementar);
+        document.getElementById("decrementar").addEventListener("click",decrementar);
+        document.getElementById("logout").addEventListener("click",logout);
+    } else {
+        alert ("El navegador no soporta Web Storage");
+    }
+
+    function incrementar(){
+        sessionStorage.setItem("contador", Number(sessionStorage.getItem("contador")) +1);
+        document.getElementById("contador").innerHTML = "Contador: "+ sessionStorage.getItem("contador");
+    }
+    function decrementar(){
+        sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))-1);
+        document.getElementById("contador").innerHTML = "Contador: "+ sessionStorage.getItem("contador");
+    }
+    function logout(){
+        alert("Se ha cerrado la sesión de "+localStorage.getItem("usuario"));
+        localStorage.removeItem("usuario");
+        //sessionStorage.clear();
+        document.getElementById("saludo").innerHTML = "";
+    }
+
+
+        window.addEventListener("load", inicio, false)
+        var contadorPuntos = 0;
+        var contadorErrores = 0;
+        var ranking;
+        // Ejercicio CARTAS:
+
+
+        var srcCarta1;
+        var srcCarta2;
+        var idCarta1;
+        var idCarta2;
+        var cartaSeleccionada;
+        var cartaSeleccionada2;
+        var cartasDescubiertas = new Array;
+        var mensaje;
+
+
+        function arrayImagenes() {
+            let imagenes = new Array();
+            let i = 0;
+            imagenes.forEach(element => {
+
+            });
+            sources = sources.short((a, b) => 0.5 - Math.random());
+            imgs.forEach(element => {
+                element.src = sources[i];
+                i++;
+            });
+        }
+
+        var arrayImagenes = new Array(
+            new Array(img="./imagenes_pokemon/Pikachu.png", 1),
+            new Array(img= "./imagenes_pokemon/Pikachu.png", 2),
+            new Array("./imagenes_pokemon/mewtwo.png", 3),
+            new Array("./imagenes_pokemon/mewtwo.png", 4),
+            new Array("./imagenes_pokemon/Charizard.png", 5),
+            new Array("./imagenes_pokemon/Charizard.png", 6),
+            new Array("./imagenes_pokemon/eevee.png", 7),
+            new Array("./imagenes_pokemon/eevee.png", 8),
+            new Array("./imagenes_pokemon/groudon.png", 9),
+            new Array("./imagenes_pokemon/groudon.png", 10),
+            new Array("./imagenes_pokemon/digglet.png",11),
+            new Array("./imagenes_pokemon/digglet.png",12)
+        );
+
+        function random_card() {
+            if (cards.length > 0) {
+                var rand = Math.floor(Math.random() * cards.length);
+                var html = "card: " + cards[rand][0] + "<br/>points: " + cards[rand][1] + "<br/><br/>";
+                document.getElementById("myDiv").innerHTML += html;
+                cards.splice(rand, 1);
+                alert(cards[0]);
+            }
+        }
+
+        function inicio() {  //Reinicia los contadores a 0
+            lenguaje = getCookie("lenguaje");
+            alert(lenguaje);
+            if (lenguaje == "ES") {
+                ponerIdiomaSpanish();
+            } if (lenguaje == "EN") {
+                ponerIdiomaIngles();
+            }
+
+            contadorPuntos = 0;
+            contadorErrores = 0;
+            var cartasDescubiertas = new Array;
+            var cartasDescubiertasSI=0;
+            var cartas = document.getElementsByClassName("carta");
+
+
+            if (cartas.length > 0) {
+                for (i = 0; i < cartas.length; i++) {
+                    cartas[i].addEventListener("click", compruebaCarta, false);
+                }
+            }
+        }
+
+
+
+
+        var nombreUsuario = prompt("Escribe tu Usuario");
+
+
+        nick.innerHTML = "" + nombreUsuario;
+
+
+        function compruebaCarta(e) {
+            if(e.target.className=="block"){
+                alert("la carta seleccionada " + e + " ya ha sido descubierta");
+                return;
+            }
+            if (srcCarta1 == null) {
+                srcCarta1 = e.target.src;
+                idCarta1 = e.target.id;
+                cartaSeleccionada = document.getElementById(e.target.id);
+                muestraCarta(cartaSeleccionada);
+            } else {
+                if (srcCarta2 == null) {
+                    srcCarta2 = e.target.src;
+                    idCarta2 = e.target.id;
+                    cartaSeleccionada2 = document.getElementById(e.target.id);
+                    muestraCarta(cartaSeleccionada2);
+                    if (srcCarta1 == srcCarta2) {
+                        if (idCarta1 == idCarta2) {
+                            alert("las 2 cartas seleccionadas es la misma. Vuelve a seleccionar la 2ª carta");
+                            srcCarta2=null;
+                        } else {
+                            contadorPuntos = contadorPuntos + 1;
+                            cartaSeleccionada.className="block";
+                            cartaSeleccionada2.className="block";
+                            cambiarPuntosTitulo();
+                            {
+                                cartasDescubiertas += new Array(idCarta1);
+                                cartasDescubiertas += new Array(idCarta2);
+                            }
+                            if (contadorPuntos == 6) {
+                                var information = document.getElementById("information");
+                                if (lenguaje == "ES") {
+                                    information.textContent = "Has ganado los 6 puntos. El juego ha terminado";
+                                }
+                                if (lenguaje == "EN") {
+                                    information.textContent = "You win the 6 points. The Game is finish";
+                                }
+                            }
+                            setTimeout(() => {
+                                idCarta1 = null;
+                                idCarta2 = null;
+                                srcCarta1 = null;
+                                srcCarta2 = null;
+                                cartaSeleccionada = null;
+                                cartaSeleccionada2 = null;
+                            }, 1000);
+                        }
+                    } else {
+                        contadorErrores = contadorErrores + 1;
+                        cambiarErroresTitulo();
+                        setTimeout(() => {
+                            cartaSeleccionada.style.opacity = 0;
+                            cartaSeleccionada2.style.opacity = 0;
+                            idCarta1 = null;
+                            idCarta2 = null;
+                            srcCarta1 = null;
+                            srcCarta2 = null;
+                            cartaSeleccionada = null;
+                            cartaSeleccionada2 = null;
+
+                        }, 1000);
+
+                    }
+                }
+
+            }
+        }
+
+        function mostrarAlert(mensaje) {
+            setTimeout(() => {
+                alert(mensaje);
+            }, 500);
+        }
+
+        function muestraCarta(idCarta) {
+            idCarta.style.opacity = 1;
+        }
+
+        function revelaCarta(e) {
+            cartaSeleccionada = e.target.id;
+            cartaSeleccionadaImg = document.getElementById(cartaSeleccionada);
+            cartaSeleccionadaImg.style.opacity = 1;
+            cartaSeleccionadaImg.style.
+                cartaSeleccionadaImg.style.border = "5px solid green";
+        }
+
+        function cambiarPuntosTitulo() {
+            var titulo = document.getElementById("tituloPuntos");
+            var information = document.getElementById("information");
+            localStorage.setItem("puntos", contadorPuntos);
+
+            if (lenguaje == "ES") {
+                information.textContent = "Has ganado un punto, ahora tienes: " + contadorPuntos;
+                tituloPuntos.innerHTML = contadorPuntos + "<i class='fas fa-check-circle'>";
+            }
+            else if (lenguaje == "EN") {
+                information.innerHTML = "You Win 1 Point, now you have: " + contadorPuntos;
+                tituloPuntos.innerHTML = contadorPuntos + "<i class='fas fa-check-circle'>";
+
+            }
+        }
+
+        function cambiarErroresTitulo() {
+            var titulo2 = document.getElementById("tituloContadorErrores");
+            if (lenguaje == "ES") {
+                information.innerHTML = "Has fallado, tienes: " + contadorErrores + " fallos.";
+                tituloContadorErrores.innerHTML = contadorErrores + "<i class='far fa-times-circle'>";
+            } if (lenguaje == "EN") {
+                information.innerHTML = "You fail, you have: " + contadorErrores + " faults.";
+                tituloContadorErrores.innerHTML = contadorErrores + "<i class='far fa-times-circle'>";
+            }
+
+        }
+
+        function ranking() {
+            primero = document.getElementById("primerPuesto");
+            primero.innerHTML = "El usuario que ha conseguido mayor puntuación a sido = " + nombreUsuario;
+        }
+
+        function ponerIdiomaIngles() {
+            lenguaje = "EN";
+            var title = "Exercise Card Game";
+            titulo.innerHTML = title;
+            var pointsTitle = contadorPuntos + "<i class='fas fa-check-circle'>";
+            tituloPuntos.innerHTML = pointsTitle;
+            var pointErrors = contadorErrores + "<i class='far fa-times-circle'>";
+            tituloContadorErrores.innerHTML = pointErrors;
+            setCookie("lenguaje", "EN", 3);
+        }
+
+        function ponerIdiomaSpanish() {
+            lenguaje = "ES";
+            var title = "Ejercicio Juego de Cartas ";
+            titulo.innerHTML = title;
+            var pointsTitle = contadorPuntos + "<i class='fas fa-check-circle'>";
+            tituloPuntos.innerHTML = pointsTitle;
+            var pointErrors = contadorErrores + "<i class='far fa-times-circle'>";
+            tituloContadorErrores.innerHTML = pointErrors;
+            setCookie("lenguaje", "ES", 3);
+        }
+
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+    </script>
+</body>
+
+</html>
